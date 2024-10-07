@@ -104,6 +104,6 @@ sierpinski(500, 5)
 
 drzewko = drzewo_z_liscmi(5,60,0.8,8)
 drzewko.print()
-niesierpinski = niesierpinski(250, 4)
+niesierpinski = niesierpinski(500, 4)
 niesierpinski.print()
 turtle.exitonclick()
