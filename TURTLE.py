@@ -1,6 +1,7 @@
 import random
 import turtle
 
+
 t = turtle.Turtle()
 t.speed("fast")
 turtle.bgcolor("black")
@@ -27,14 +28,17 @@ def kwadrat(dlugosc_boku: int):
 
 kwadrat(4)
 
+# kwadrat(4)
+
 
 def fractal_daktal(rozmiar_najwiekszego_kwadratu: int, krok):
     kwadrat(rozmiar_najwiekszego_kwadratu)
     if rozmiar_najwiekszego_kwadratu > 1:
         fractal_daktal(int(rozmiar_najwiekszego_kwadratu * krok), krok)
 
+t.right(90)
 fractal_daktal(500, 0.9)
-
+t.left(90)
 def sierpinski(rozmiar, kroki):
     if kroki > 0:
         for i in range(3):
@@ -88,7 +92,7 @@ class niesierpinski():
         self.kroki = kroki
 
     def print(self):
-        t.left(90)
+        # t.left(90)
         self.kwadrat(self.rozmiar, self.kroki)
 
     def kwadrat(self, rozmiar, kroki):
@@ -100,10 +104,11 @@ class niesierpinski():
                 t.left(90)
 
 
-sierpinski(500, 5)
+sierpinski(500, 4)
 
 drzewko = drzewo_z_liscmi(5,60,0.8,8)
 drzewko.print()
 niesierpinski = niesierpinski(500, 4)
+t.right(90)
 niesierpinski.print()
 turtle.exitonclick()
