@@ -35,6 +35,14 @@ class Zakladka2(QWidget):
         with open(self.fileName, 'w') as plik:
             plik.write(self.text_1.text())
 
+    def zapisz_jako(self):
+        self.fileName, selectedFilter = QFileDialog.getOpenFileName(self, "Wybierz plik obrazu",
+                                                                    "Początkowa nazwa pliku",
+                                                                    "All Files (*);;Python Files (*.py);; PNG (*.png)")
+
+        with open(self.fileName, 'w') as plik:
+            plik.write(self.text_1.text())
+
     def wybierz_i_wyswietl(self):
         self.fileName, selectedFilter = QFileDialog.getOpenFileName(self, "Wybierz plik obrazu", "Początkowa nazwa pliku",
                                                                "All Files (*);;Python Files (*.py);; PNG (*.png)")

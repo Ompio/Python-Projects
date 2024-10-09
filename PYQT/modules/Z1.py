@@ -1,5 +1,7 @@
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QFileDialog, QPushButton, QMessageBox, QGridLayout
-from PyQt6.QtGui import QPixmap
+from PyQt6.QtGui import QPixmap, QAction
+
+
 class Zakladka1(QWidget):
     def __init__(self):
         super().__init__()

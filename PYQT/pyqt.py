@@ -1,13 +1,10 @@
-# 3.1
 from PyQt6.QtWidgets import QApplication, QTabWidget, QWidget
-from PyQt6.QtWidgets import QLabel
 from PyQt6.QtWidgets import QMainWindow
-from PyQt6.QtWidgets import QStatusBar
-from PyQt6.QtWidgets import QToolBar
-from PyQt6.QtGui import QIcon, QAction
+from PyQt6.QtGui import QAction
 
-from PYQT.Z1 import Zakladka1
-from PYQT.Z2 import Zakladka2
+from PYQT.modules.Z1 import Zakladka1
+from PYQT.modules.Z2 import Zakladka2
+from PYQT.modules.Z3 import Zakladka3
 
 
 # Tworzenie klasy głównego okna aplikacji dziedziczącej po QMainWindow
@@ -18,8 +15,8 @@ class Window(QMainWindow):
         super().__init__(parent)
         self.setWindowTitle('PyQt6 Lab')
         self.setGeometry(100, 100, 500, 500)
-        self.createMenu()
         self.createTabs()
+        self.createMenu()
 
     # Funkcja dodająca pasek menu do okna
     def createMenu(self):
@@ -41,12 +38,35 @@ class Window(QMainWindow):
 
     def createT1Menu(self):
         self.t1Menu = self.menu.addMenu("Task1")
+        actionOpen = QAction('Open', self)
+        actionOpen.triggered.connect(self.tab_1.wybierz_i_wyswietl)
+        self.t1Menu.addAction(actionOpen)
 
     def createT2Menu(self):
         self.t2Menu = self.menu.addMenu("Task2")
 
+        actionClear = QAction('Clear', self)
+        actionClear.triggered.connect(self.tab_2.wyczysc)
+        self.t2Menu.addAction(actionClear)
+
+        actionOpen = QAction('Open', self)
+        actionOpen.triggered.connect(self.tab_2.wybierz_i_wyswietl)
+        self.t2Menu.addAction(actionOpen)
+
+        actionSave = QAction('Save', self)
+        actionSave.triggered.connect(self.tab_2.zapisz)
+        self.t2Menu.addAction(actionSave)
+
+        actionSaveAs = QAction('Save as', self)
+        actionSaveAs.triggered.connect(self.tab_2.zapisz_jako)
+        self.t2Menu.addAction(actionSaveAs)
+
+
     def createT3Menu(self):
         self.t3Menu = self.menu.addMenu("Task3")
+        actionClear = QAction('Clear', self)
+        actionClear.triggered.connect(self.tab_3.clear)
+        self.t3Menu.addAction(actionClear)
 
     # Funkcja dodająca wenętrzeny widżet do okna
     def createTabs(self):
@@ -56,7 +76,7 @@ class Window(QMainWindow):
         # Stworzenie osobnych widżetów dla zakładek
         self.tab_1 = Zakladka1()
         self.tab_2 = Zakladka2()
-        self.tab_3 = QWidget()
+        self.tab_3 = Zakladka3()
 
         # Dodanie zakładek do widżetu obsługującego zakładki
         self.tabs.addTab(self.tab_1, "Zakładka1")
