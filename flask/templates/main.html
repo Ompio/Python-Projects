@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz Książki</title>
+</head>
+<body>
+    <h1>Książki</h1>
+    <table>
+        <thead>
+           <td>Autor</td>
+           <td>Książka</td>
+        </thead>
+
+        {% for book in books %}
+           <tr>
+              <td>{{book[0]}}</td>
+              <td>{{book[1]}}</td>
+           </tr>
+        {% endfor %}
+     </table>
+    <h1>Dodaj Książkę</h1>
+    <form method="POST" action="/add">
+        Autor: <input type=text name=autor>
+        Książka: <input type=text name=ksiazka>
+        <input type=submit>
+    </form>
+    <a href=/logout>Wyloguj</a>
+</body>
+</html>
