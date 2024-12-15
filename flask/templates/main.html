@@ -26,6 +26,10 @@
         Książka: <input type=text name=ksiazka>
         <input type=submit>
     </form>
+    {% if is_admin %}
+    <a href=/manage_users>Zarządzaj użytkownikami</a>
+    <br>
+    {% endif %}
     <a href=/logout>Wyloguj</a>
 </body>
 </html>

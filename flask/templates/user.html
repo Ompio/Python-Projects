@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dane użytkownika</title>
+</head>
+<body>
+    <h1>Dane użytkownika</h1>
+
+    <p><strong>ID użytkownika:</strong> {{ user[0] }}</p>
+    <p><strong>Nazwa użytkownika:</strong> {{ user[1] }}</p>
+    <p><strong>Administrator:</strong> {{ 'Tak' if user[3] else 'Nie' }}</p>
+    <p><strong>Data rejestracji:</strong> {{ user[4] if user[4] else 'Nieznana' }}</p>
+
+    <br>
+    <a href="/manage_users">Powrót do zarządzania użytkownikami</a>
+    <br>
+    <a href="/">Powrót do strony głównej</a>
+</body>
+</html>
